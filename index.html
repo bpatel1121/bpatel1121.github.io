@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en" class="is-booting">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brij Patel · Physics &amp; Applied Mathematics, UC Berkeley</title>
+<meta name="description" content="Brij Patel. Physics and applied mathematics at UC Berkeley. Randomized numerical linear algebra, systematic trading research, and applied LLM systems.">
+<meta name="theme-color" content="#0b0b0d">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Brij Patel">
+<meta property="og:description" content="Physics and applied math at Berkeley. Randomized linear algebra for neural-network optimization, systematic trading research, and production LLM pipelines.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..600;1,6..72,200..500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<noscript><style>
+.reveal,.anim{opacity:1!important;transform:none!important}
+html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!important}
+.hero__name .w>i{transform:none!important}
+.hero__eyebrow::before{transform:scaleX(1)!important}
+.hero__glow{opacity:.85!important}
+</style></noscript>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0b0d'/><text y='.9em' x='.5em' font-size='62' text-anchor='middle' font-family='Georgia,serif' fill='%23d8a657'>B</text></svg>">
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__mark" aria-label="Brij Patel, back to top">
+      <span class="nav__glyph">B</span><span class="nav__name">Brij Patel</span>
+    </a>
+    <nav class="nav__links" aria-label="Sections">
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#beyond">Beyond</a>
+    </nav>
+    <div class="theme" role="group" aria-label="Colour theme">
+      <button class="theme__btn" data-set="default"   style="--sw:#d8a657" aria-pressed="true"  title="Default"   aria-label="Default theme"></button>
+      <button class="theme__btn" data-set="light"     style="--sw:#fff1e5" aria-pressed="false" title="Light"     aria-label="Light theme"></button>
+      <button class="theme__btn" data-set="cyberpunk" style="--sw:#22d3ee" aria-pressed="false" title="Cyberpunk" aria-label="Cyberpunk theme"></button>
+    </div>
+  </div>
+</header>
+
+<div id="rubber">
+<main id="main">
+
+<!-- ───────────────────────── HERO ───────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <p class="hero__eyebrow anim" style="--d:0">Berkeley, California</p>
+    <h1 class="hero__name" aria-label="Brij Patel"><span class="w" style="--d:1" aria-hidden="true"><i>Brij</i></span> <span class="w" style="--d:2" aria-hidden="true"><i>Patel</i></span></h1>
+    <p class="hero__role anim" style="--d:3">
+      <span>Physics &amp; Applied Mathematics</span><span class="sep">·</span><span>UC&nbsp;Berkeley</span>
+    </p>
+    <p class="hero__blurb anim" style="--d:4">
+      I work on randomized numerical linear algebra for neural&#8209;network optimization,
+      making ill&#8209;conditioned solves behave in float32 rather than diverging
+      mid&#8209;training. Away from the research I build retrieval systems, data pipelines,
+      and backtests, where the hard part is catching the errors that do not announce
+      themselves.
+    </p>
+    <div class="hero__cta anim" style="--d:5">
+      <a class="btn btn--primary" href="#research">See the work</a>
+      <a class="btn" href="mailto:brijpatel2106012@gmail.com">Get in touch</a>
+    </div>
+  </div>
+  <div class="hero__cue anim" style="--d:6" aria-hidden="true"><span></span></div>
+</section>
+
+<!-- ───────────────────────── AT A GLANCE ───────────────────────── -->
+<section class="strip reveal" aria-label="At a glance">
+  <div class="wrap strip__grid">
+    <div class="strip__item">
+      <p class="label">Now</p>
+      <p>Undergraduate researcher, <em>randomized preconditioning</em> for neural&#8209;network optimization</p>
+    </div>
+    <div class="strip__item">
+      <p class="label">Graduating</p>
+      <p>Dual B.A. Physics &amp; Applied Mathematics, UC&nbsp;Berkeley <span class="dim">· Dec&nbsp;2026</span></p>
+    </div>
+    <div class="strip__item">
+      <p class="label">Looking for</p>
+      <p>Numerical computing, quantitative research, and applied LLM systems</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── RESEARCH ───────────────────────── -->
+<section class="section" id="research">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <p class="section__num">01</p>
+      <h2 class="section__title">Research</h2>
+      <p class="section__lede">Numerical methods that hold up when the conditioning gets ugly.</p>
+    </header>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">Mar 2026 to Present</p>
+        <p class="entry__org">UC Berkeley</p>
+        <p class="dim">Advisor: Gil Goldshlager</p>
+        <p class="entry__stack">JAX · NumPy</p>
+      </div>
+      <div class="entry__body">
+        <h3>Randomized Preconditioning for Neural Network Optimization</h3>
+        <p class="entry__sub">Undergraduate Researcher</p>
+        <p>Natural&#8209;gradient methods for neural&#8209;network wavefunctions require solving
+        a damped Gram&#8209;matrix system at every step. In float32 those systems are badly
+        conditioned enough that the obvious approach, forming and solving the normal equations,
+        diverges once the condition number passes roughly 10<sup>7</sup>. That is not a
+        hypothetical. It happens inside the training loop, and when it fails it fails silently,
+        producing updates that look plausible and are not.</p>
+        <p>I implemented a randomized sketch&#8209;and&#8209;precondition solver using
+        Cholesky&#8209;QR, benchmarked against a float64 QR reference so that &ldquo;more
+        accurate&rdquo; means something measurable. At moderate conditioning it is about
+        <strong>8&times; more accurate</strong> than the float32 baseline, and it stays finite
+        out to condition numbers around <strong>10<sup>15</sup></strong>, where the baseline has
+        long since blown up. The current work extends this from synthetic operators to the ones
+        actually produced by neural networks, which is where the guarantees have to hold if the
+        method is going to be trusted in the VMC training loop.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">May 2025 to Aug 2025</p>
+        <p class="entry__org">UC Berkeley</p>
+        <p class="entry__stack">PyTorch</p>
+      </div>
+      <div class="entry__body">
+        <h3>Quantum-Inspired Generative Models</h3>
+        <p class="entry__sub">Undergraduate Researcher</p>
+        <p>Hybrid classical and quantum architectures that blend diffusion models with
+        tensor&#8209;network priors, with the aim of improving sample efficiency. I benchmarked
+        generative fidelity on physics&#8209;informed datasets and studied how expressivity
+        trades against compute.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── QUOTE I ───────────────────────── -->
+<section class="quote reveal" aria-label="Quotation">
+  <div class="wrap">
+    <blockquote>
+      <p>Your pain is the breaking of the shell that encloses your understanding. Even as the
+      stone of the fruit must break, that its heart may stand in the sun, so must you know pain.</p>
+      <footer class="quote__attr mono">Kahlil Gibran <span class="dim">· <cite>On Pain</cite></span></footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ───────────────────────── EXPERIENCE ───────────────────────── -->
+<section class="section" id="experience">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <p class="section__num">02</p>
+      <h2 class="section__title">Experience</h2>
+      <p class="section__lede">Shipping systems that other people depend on being right.</p>
+    </header>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">May 2026 to Aug 2026</p>
+        <p class="entry__org">Smart Circle International</p>
+        <p class="dim">Newport Beach, CA</p>
+        <p class="entry__stack">LangGraph · Snowflake · Python</p>
+      </div>
+      <div class="entry__body">
+        <h3>AI Engineer Intern</h3>
+        <p>The reporting workflow was the kind of problem that looks like a data&#8209;entry
+        chore and is actually a correctness problem. Order information arrived as GroupMe
+        messages, got transcribed by hand, and fed weekly reports covering about a million
+        dollars in sales. Errors were invisible until someone downstream noticed a number that
+        felt wrong.</p>
+        <p>I rebuilt it as a LangGraph pipeline with a deliberate split. Deterministic field
+        mapping handles anything with structure, and an LLM only handles the residue that
+        doesn&rsquo;t parse. That ordering matters, because the failure mode of an
+        all&#8209;LLM pipeline is confident nonsense on exactly the fields you can least afford
+        to get wrong. Validation ran field by field against historical data,
+        <strong>5,418 fields</strong>, before it was allowed near a live report:
+        <strong>99.9%</strong> overall and zero errors on business&#8209;critical fields.</p>
+        <p>The second project was inventory rebalancing across independent sales offices. Each
+        office ordered in isolation, so shortages in one place coexisted with surplus in
+        another. The pipeline pulls campaign and stock data from Snowflake three times a week,
+        computes what each office actually needs, and matches shortfalls against
+        same&#8209;campaign surplus within a 50&#8209;mile haversine radius, publishing the
+        resulting transfers and reorders to ClickUp. It removed <strong>8 to 10 hours</strong>
+        a week of manual coordination.</p>
+        <p>Alongside both, I built and evaluated internal LLM tooling using Claude Code,
+        retrieval, and structured prompting, working directly with the CIO.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">Feb 2026 to May 2026</p>
+        <p class="entry__org">Nucleus AI</p>
+        <p class="dim">Berkeley, CA</p>
+        <p class="entry__stack">RAG · pgvector · React</p>
+      </div>
+      <div class="entry__body">
+        <h3>Co-Founder &amp; Technical Lead</h3>
+        <p>Course material at Berkeley is scattered. Some of it lives on department sites,
+        some on Canvas, some in PDFs attached to a syllabus nobody links to twice. Finding the
+        one lecture note you actually need regularly takes longer than reading it, and the
+        students who lose most to that are the ones without an upperclassman to ask. Nucleus
+        was an attempt to make the search part disappear.</p>
+        <p>I engineered a nightly, domain&#8209;scoped crawler over
+        <span class="mono-inline">berkeley.edu</span> that ingests and normalizes course
+        materials from department sites and Canvas, feeding a
+        chunking&#8209;and&#8209;embedding pipeline. On top of it I architected the RAG layer
+        that retrieves and ranks lecture notes, PDFs, and syllabi through
+        embedding&#8209;based semantic search over a Supabase and PostgreSQL store with
+        pgvector, behind a React frontend deployed on Vercel.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">May 2023 to Aug 2024</p>
+        <p class="entry__org">DKP Photolens</p>
+        <p class="dim">Irvine, CA</p>
+        <p class="entry__stack">pandas · Matplotlib</p>
+      </div>
+      <div class="entry__body">
+        <h3>Founder &amp; Lead Engineer</h3>
+        <p>I wanted a good neutral&#8209;density filter, and good ones are expensive, so I
+        tried making one. That turned into about fifteen months of runs on an Orion&#8209;8
+        electron sputtering system, testing different deposition patterns to see which ones
+        produced a usable coating, with the spectral characterization done at UCI&rsquo;s
+        Materials Discovery and Synthesis Center.</p>
+        <p>Most of what I got out of it came from keeping records. I logged the conditions for
+        every one of the fifty&#8209;odd runs and wrote Python tooling to line those logs up
+        against the measurements on the finished filters. That is what let me say which
+        parameter change actually mattered, rather than guessing at it.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ───────────────────────── PROJECTS ───────────────────────── -->
+<section class="section" id="projects">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <p class="section__num">03</p>
+      <h2 class="section__title">Projects</h2>
+      <p class="section__lede">Quantitative research tooling, and the machines I run it on.</p>
+    </header>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">Dec 2025</p>
+        <p class="entry__stack">Python · pandas · NumPy</p>
+        <a class="repo" href="https://github.com/bpatel1121/Quant_Fellowship_Project" target="_blank" rel="noopener">Repository <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="entry__body">
+        <h3>Systematic QQQ Strategy &amp; Signal Library</h3>
+        <p>A daily leverage&#8209;targeting strategy on QQQ. Thirty&#8209;plus candidate signals
+        across momentum, mean reversion, volatility regime, volume, and calendar effects, each
+        written as a pure function from price data to a leverage series so any of them can be
+        dropped into the backtester without touching it. The survivors combine into a composite
+        scaled by a Garman&#8209;Klass realized&#8209;volatility anchor and squashed through
+        <span class="mono-inline">tanh</span>, so leverage is bounded smoothly rather than
+        clipped.</p>
+        <p>The part I care about is the evaluation discipline. Leverage at close <em>t</em>
+        applies to the <em>t</em> to <em>t+1</em> return, which makes the backtest causal by
+        construction, with no post&#8209;hoc shift to forget. Costs are charged on every change
+        in leverage. The benchmark is charged nothing, which handicaps the comparison against
+        my own strategy on purpose.</p>
+
+        <figure class="fig">
+          <figcaption class="fig__title">Strategy vs buy&#8209;and&#8209;hold, three disjoint windows</figcaption>
+          <div class="fig__legend">
+            <span><i class="sw sw--a"></i>Strategy</span>
+            <span><i class="sw sw--b"></i>Buy&#8209;and&#8209;hold</span>
+          </div>
+          <svg class="chart" viewBox="0 0 620 384" role="img" aria-labelledby="qqq-t qqq-d" preserveAspectRatio="xMinYMin meet">
+            <title id="qqq-t">Sharpe ratio and maximum drawdown, strategy versus buy and hold</title>
+            <desc id="qqq-d">Across all three windows the strategy has a higher Sharpe ratio and a shallower maximum drawdown than buy and hold. Exact figures are in the table below.</desc>
+
+            <text class="c-panel" x="0" y="12">Sharpe ratio</text>
+            <g class="c-grid">
+              <line x1="196" y1="24" x2="196" y2="158"/><text class="c-tick" x="196" y="172">0</text>
+              <line x1="331" y1="24" x2="331" y2="158"/><text class="c-tick" x="331" y="172">0.6</text>
+              <line x1="465" y1="24" x2="465" y2="158"/><text class="c-tick" x="465" y="172">1.2</text>
+              <line x1="600" y1="24" x2="600" y2="158"/><text class="c-tick" x="600" y="172">1.8</text>
+            </g>
+            <text class="c-row" x="186" y="47">Train 2000-2015</text>
+            <path class="c-a" d="M196 34h84a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 52h41a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val" x="298" y="45">0.39</text>
+            <text class="c-row" x="186" y="93">Validation 2016-2021</text>
+            <path class="c-a" d="M196 80h348a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 98h254a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val" x="562" y="91">1.57</text>
+            <text class="c-row c-row--hi" x="186" y="139">Blind holdout 2022-2025</text>
+            <path class="c-a" d="M196 126h209a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 144h135a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val c-val--hi" x="423" y="137">0.95</text>
+
+            <text class="c-panel" x="0" y="222">Maximum drawdown <tspan class="c-note">(shorter is better)</tspan></text>
+            <g class="c-grid">
+              <line x1="196" y1="234" x2="196" y2="368"/><text class="c-tick" x="196" y="382">0</text>
+              <line x1="331" y1="234" x2="331" y2="368"/><text class="c-tick" x="331" y="382">30%</text>
+              <line x1="465" y1="234" x2="465" y2="368"/><text class="c-tick" x="465" y="382">60%</text>
+              <line x1="600" y1="234" x2="600" y2="368"/><text class="c-tick" x="600" y="382">90%</text>
+            </g>
+            <text class="c-row" x="186" y="257">Train 2000-2015</text>
+            <path class="c-a" d="M196 244h163a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 262h369a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val" x="377" y="255">37.2%</text>
+            <text class="c-row" x="186" y="303">Validation 2016-2021</text>
+            <path class="c-a" d="M196 290h50a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 308h124a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val" x="264" y="301">12.0%</text>
+            <text class="c-row c-row--hi" x="186" y="349">Blind holdout 2022-2025</text>
+            <path class="c-a" d="M196 336h74a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <path class="c-b" d="M196 354h149a4 4 0 0 1 4 4v6a4 4 0 0 1-4 4H196z"/>
+            <text class="c-val c-val--hi" x="288" y="347">17.4%</text>
+          </svg>
+
+          <details class="fig__table">
+            <summary>Show the numbers</summary>
+            <div class="table-wrap">
+              <table class="data">
+                <thead>
+                  <tr><th scope="col">Window</th><th scope="col">Sharpe</th><th scope="col">Buy&#8209;hold</th><th scope="col">Max DD</th><th scope="col">Buy&#8209;hold</th><th scope="col">n</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">Train 2000-2015</th><td>0.39</td><td class="vs">0.20</td><td>−37.2%</td><td class="vs">−83.0%</td><td class="vs">4025</td></tr>
+                  <tr><th scope="row">Validation 2016-2021</th><td>1.57</td><td class="vs">1.15</td><td>−12.0%</td><td class="vs">−28.6%</td><td class="vs">1510</td></tr>
+                  <tr class="hi"><th scope="row">Blind holdout 2022-2025</th><td>0.95</td><td class="vs">0.62</td><td>−17.4%</td><td class="vs">−34.0%</td><td class="vs">985</td></tr>
+                </tbody>
+              </table>
+              <p class="fig__note">Holdout also: Calmar 0.756 vs 0.373 · annualized vol 14.1% vs 23.8% · average daily turnover 4.7%.</p>
+            </div>
+          </details>
+        </figure>
+
+        <p>The honest reading is that the edge is risk control rather than return generation.
+        The volatility anchor de&#8209;levers into turbulence, which costs participation in
+        sharp rallies and buys shallower drawdowns. Validation Sharpe was 1.57, so the drop to
+        0.95 is the visible cost of having selected among thirty signals on that window, which
+        is exactly why the holdout number is the one to believe.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">Jan 2026</p>
+        <p class="entry__stack">Python · pandas · NumPy</p>
+        <a class="repo" href="https://github.com/bpatel1121/vectorized-factor-research" target="_blank" rel="noopener">Repository <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="entry__body">
+        <h3>Cross-Sectional Equity Factor Framework</h3>
+        <p>Lookahead bias in factor research is rarely one dramatic mistake. It is three quiet
+        ones: normalizing a signal using statistics that include the future, ranking a stock
+        against peers that were not investable at the time, and applying the evaluation lag
+        inconsistently across factors. Every one of them inflates backtest performance and none
+        of them announce themselves.</p>
+        <p>This framework&rsquo;s premise is that catching those by discipline does not scale.
+        Two of the three are handled inside the engine where a factor author cannot reach them.
+        Universe masking happens before cross&#8209;sectional ranking, and there is exactly one
+        <span class="mono-inline">shift(1)</span> in the entire codebase, applied
+        unconditionally. The third, normalization, is centralized behind a single module that
+        exposes the only approved primitives, with a documented taxonomy of the unsafe pandas
+        calls and why each one leaks.</p>
+        <p>The engine is fully vectorized with no Python&#8209;level loops in the backtest path,
+        built on runtime&#8209;checkable Protocols and a frozen config so a new factor or data
+        source is a drop&#8209;in.</p>
+        <p class="caveat">It documents its own limitations rather than hiding them. The static
+        universe carries survivorship bias, normalization safety is currently enforced by
+        convention rather than by the architecture, and there are no tests or CI yet. The
+        README says so.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">2026 (v1.0)</p>
+        <p class="entry__stack">Bash · Lua · QML · CI</p>
+        <a class="repo" href="https://github.com/bpatel1121/hyprland" target="_blank" rel="noopener">Repository <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="entry__body">
+        <h3>hyprland: Multi-Theme Wayland Desktop Engine</h3>
+        <p>One config, swappable skins. <span class="mono-inline">hyprland.lua</span> holds
+        layout, keybinds, and behavior, and everything visual lives in
+        <span class="mono-inline">themes/&lt;name&gt;/</span>. Switching themes repoints a single
+        relative symlink and <strong>seventeen surfaces</strong> follow: status bar, launcher,
+        notification center, volume OSD, terminal, editor colorscheme, cursor set, lock screen,
+        QML login greeter, and the rest. Themes are self&#8209;describing directories. A
+        <span class="mono-inline">theme.lua</span> declares its own identity through keys read
+        both by Lua at load and by shell scripts with <span class="mono-inline">sed</span>, so
+        the apply path has zero dependencies.</p>
+        <p>Two things in here are the actual engineering. The first is a compositor bug.
+        Hyprland&rsquo;s animated border gradient rotates once and freezes, a known upstream
+        regression lineage still broken on 0.56.2 even though the animation registers. I worked
+        around it with a userspace daemon that drives the rotation through live IPC evaluation,
+        lifecycle&#8209;managed so it starts only when the active theme asks for it and dies
+        with the compositor. The first version ticked ten times a second and made things worse:
+        every config write cancels in&#8209;flight animations, so it was clipping every
+        workspace slide. Correlating the failures against the daemon&rsquo;s schedule identified
+        the contention, and the fix was to slow the tick to once every two seconds and let the
+        compositor&rsquo;s own easing carry the motion.</p>
+        <p>The second is CI that encodes what debugging taught me. Beyond shellcheck and config
+        validation, the pipeline fails the build on any non&#8209;inset
+        <span class="mono-inline">box-shadow</span> or use of the
+        <span class="mono-inline">transparent</span> keyword in the stylesheets, because GTK3
+        composites an outer box&#8209;shadow past the rounded edge of a layer&#8209;shell
+        surface, and that is how black halos got into the bar twice. The rule exists so it
+        cannot happen a third time.</p>
+      </div>
+    </article>
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">2026 (v1.0)</p>
+        <p class="entry__stack">Bash · CI</p>
+        <a class="repo" href="https://github.com/bpatel1121/linux-setup" target="_blank" rel="noopener">Repository <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="entry__body">
+        <h3>linux-setup: Idempotent Arch Provisioner</h3>
+        <p>Setting up a machine the way you like it is a few hours of work you then repeat,
+        badly, from memory, the next time. This repo makes it one command and makes it
+        repeatable.</p>
+        <p>Package manifests are declarative, and installation retries per package so one bad
+        AUR build doesn&rsquo;t abort the run. Dotfiles are symlinked with timestamped backups
+        of anything already there, and the script refuses to clobber symlinks another repo owns.
+        Services and the firewall come up configured. There is an audit mode that diffs the live
+        machine against the repo in both directions and reports drift, including orphaned
+        packages, because the failure mode of a setup script is not the first run. It is the
+        machine slowly diverging from it over six months.</p>
+      </div>
+    </article>
+
+    <div class="also reveal">
+      <p class="label">Also</p>
+      <p>A <a href="https://github.com/bpatel1121/kelly-betting-simulator" target="_blank" rel="noopener">Kelly criterion position&#8209;sizing simulator</a>,
+      2,000 Monte Carlo paths confirming that Full Kelly reproduces the closed&#8209;form growth
+      optimum while Double&#8209;Kelly turns growth negative despite an identical edge. And a
+      <a href="https://github.com/bpatel1121/quantum-state-tomography-wigner" target="_blank" rel="noopener">quantum state tomography solver</a>
+      that poses reconstruction from Wigner&#8209;function measurements as a semidefinite program
+      in CVXPY, built in 24 hours at Yale&rsquo;s YQuantum hackathon.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───────────────────────── QUOTE II ───────────────────────── -->
+<section class="quote reveal" aria-label="Quotation">
+  <div class="wrap">
+    <blockquote>
+      <p>Fear isn&rsquo;t unpleasant, and safety isn&rsquo;t always pleasant. Anxiety is a
+      feeling one gets when one challenges themselves.</p>
+      <footer class="quote__attr mono">Uoto <span class="dim">· <cite>100 Meters</cite></span></footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- ───────────────────────── BEYOND ───────────────────────── -->
+<section class="section" id="beyond">
+  <div class="wrap">
+    <header class="section__head reveal">
+      <p class="section__num">04</p>
+      <h2 class="section__title">Beyond</h2>
+    </header>
+
+    <div class="aside reveal">
+      <p>Away from the work: chess, where I play the Danish Gambit as White and the Caro-Kann
+      as Black. Two openings that want opposite things, which is most of why I keep both.</p>
+      <p>Anime, mostly for the writing. Uoto&rsquo;s <em>100 Meters</em> is the one I return to,
+      for the argument that anxiety is the price of attempting something uncertain rather than a
+      reason to stop.</p>
+      <p>And the Linux setup that two of the projects above are already about, so I will leave
+      it there.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── TOOLKIT ───────────────────────── -->
+<section class="section section--tight" id="toolkit">
+  <div class="wrap">
+    <header class="section__head section__head--minor reveal">
+      <h2 class="section__title section__title--minor">Toolkit</h2>
+    </header>
+    <dl class="skills reveal">
+      <div><dt>Languages</dt><dd>Python · C++ · Java · JavaScript · SQL · Bash · Lua</dd></div>
+      <div><dt>ML &amp; Scientific Computing</dt><dd>JAX · PyTorch · NumPy · SciPy · pandas · Matplotlib · CVXPY · CUDA · Jupyter</dd></div>
+      <div><dt>AI &amp; LLM</dt><dd>RAG · embeddings &amp; semantic search · MCP · LangGraph · agentic workflows · structured prompting · LLM evaluation &amp; observability</dd></div>
+      <div><dt>Data &amp; Infrastructure</dt><dd>PostgreSQL (pgvector) · Supabase · SQLite · Snowflake (Cortex) · Linux · Git</dd></div>
+      <div><dt>Systems</dt><dd>Arch Linux · Wayland/Hyprland · shell scripting · QML/Qt · systemd · IPC · GitHub Actions CI</dd></div>
+      <div><dt>Coursework</dt><dd>Real Analysis · Complex Analysis · Numerical Analysis · PDEs · Abstract Linear Algebra · Discrete Mathematics · Quantum Mechanics I &amp; II · Electromagnetism &amp; Optics · Statistical &amp; Thermal Physics · Analytic Mechanics · Instrumentation &amp; Advanced Experimentation Labs</dd></div>
+      <div><dt>Fall 2026</dt><dd>Abstract Algebra · Mathematical Methods for Optimization · Quantum Computing I <span class="dim">(in progress)</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+</main>
+
+<!-- ───────────────────────── FOOTER ───────────────────────── -->
+<footer class="footer" id="contact">
+  <div class="wrap footer__inner">
+    <div class="reveal">
+      <p class="footer__lede">Open to research collaborations, quantitative roles, and good problems.</p>
+      <a class="footer__mail" href="mailto:brijpatel2106012@gmail.com">brijpatel2106012@gmail.com</a>
+    </div>
+    <nav class="footer__links reveal" aria-label="Elsewhere">
+      <a href="https://github.com/bpatel1121" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/brijpatel21" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:brijpatel2106012@gmail.com">Email</a>
+    </nav>
+    <p class="footer__fine dim reveal">
+      <span>&copy; <span id="year">2026</span> Brij Patel</span>
+      <span class="footer__dot">·</span>
+      <span>Berkeley, CA</span>
+    </p>
+  </div>
+</footer>
+</div>
+
+<div class="edge edge--top" aria-hidden="true"></div>
+<div class="edge edge--bot" aria-hidden="true"></div>
+
+<script src="main.js"></script>
+</body>
+</html>
