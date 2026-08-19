@@ -53,7 +53,7 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
       <a href="#projects">Projects</a>
       <a href="#beyond">Beyond</a>
     </nav>
-    <div class="theme" role="group" aria-label="Colour theme">
+    <div class="theme" role="group" aria-label="Color theme">
       <button class="theme__btn" data-set="default"   style="--sw:#d8a657" aria-pressed="true"  title="Default"   aria-label="Default theme"></button>
       <button class="theme__btn" data-set="light"     style="--sw:#fff1e5" aria-pressed="false" title="Light"     aria-label="Light theme"></button>
       <button class="theme__btn" data-set="cyberpunk" style="--sw:#22d3ee" aria-pressed="false" title="Cyberpunk" aria-label="Cyberpunk theme"></button>
@@ -581,9 +581,18 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
 
     <div class="also reveal">
       <p class="label">Also</p>
-      <p>A <a href="https://github.com/bpatel1121/quantum-state-tomography-wigner" target="_blank" rel="noopener">quantum state tomography solver</a>
-      that poses reconstruction from Wigner&#8209;function measurements as a semidefinite program
-      in CVXPY, built in 24 hours at Yale&rsquo;s YQuantum hackathon.</p>
+      <div class="also__body">
+        <p>A <a href="https://github.com/bpatel1121/coinflip-risk-simulator" target="_blank" rel="noopener">coinflip risk simulator</a>,
+        the companion to the Kelly widget above. That one asks how much to bet when you have an
+        edge; this one shows what happens with none. Fixed&#8209;fraction betting on a fair coin
+        still loses money at the median, $100 falling to $36.60 over 200 rounds at f&nbsp;=&nbsp;0.10,
+        which matches the closed&#8209;form log&#8209;growth rate of &minus;0.005025 per round to the
+        cent. A win and a loss of the same size leave you at (1+f)(1&minus;f) = 1&minus;f<sup>2</sup>,
+        below where you started.</p>
+        <p>And a <a href="https://github.com/bpatel1121/quantum-state-tomography-wigner" target="_blank" rel="noopener">quantum state tomography solver</a>
+        that poses reconstruction from Wigner&#8209;function measurements as a semidefinite program
+        in CVXPY, built in 24 hours at Yale&rsquo;s YQuantum hackathon.</p>
+      </div>
     </div>
 
   </div>
@@ -611,11 +620,12 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
     <div class="aside reveal">
       <p>Away from the work: chess, where I play the Danish Gambit as White and the Caro-Kann
       as Black. Two openings that want opposite things, which is most of why I keep both.</p>
-      <p>Anime, mostly for the writing. Uoto&rsquo;s <em>100 Meters</em> is the one I return to,
-      for the argument that anxiety is the price of attempting something uncertain rather than a
-      reason to stop.</p>
-      <p>And the Linux setup that two of the projects above are already about, so I will leave
-      it there.</p>
+      <p>Anime, mostly for the writing. The Uoto line further up the page is from
+      <em>100 Meters</em>, which has stuck with me longer than most of what I have read for
+      class.</p>
+      <p>And basketball. DeMar DeRozan is my favorite player, which the analytics crowd will
+      tell you is an indefensible position: the mid&#8209;range is the least efficient shot on the
+      floor, and he has built a career on it anyway.</p>
     </div>
   </div>
 </section>

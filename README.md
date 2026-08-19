@@ -45,7 +45,7 @@ button in the hero's `.hero__cta`:
 <a class="btn" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
 ```
 
-**Colours and themes** , every colour is a variable at the top of `styles.css`.
+**Colors and themes** , every color is a variable at the top of `styles.css`.
 The accent is `--gold: #d8a657`. Change that one value and the whole site follows.
 
 Three themes ship: the default gold, `light`, and `cyberpunk`. Each is a block of
@@ -62,7 +62,7 @@ block, change the values, and add one button in the nav with a matching
 degrades quietly in private browsing.
 
 Contrast is audited per theme: every text token clears 4.5:1 against its own
-background, and the chart's two series clear the colour-vision separation
+background, and the chart's two series clear the color-vision separation
 threshold in all three.
 
 ## Local preview

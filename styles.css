@@ -243,6 +243,7 @@ strong { font-weight: 500; color: var(--ink); }
 /* ---------------- hero ---------------- */
 .hero {
   position: relative;
+  min-height: 100vh;          /* fallback for browsers without svh */
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -515,7 +516,6 @@ sup { font-size: .7em; }
   color: var(--ink-2);
 }
 .aside p + p { margin-top: 1.25rem; }
-.aside p:last-child { color: var(--ink-3); }
 
 /* ---------------- skills ---------------- */
 .skills { display: grid; gap: 0; }
@@ -758,12 +758,13 @@ table.data tr.hi td:not(.vs) { color: var(--gold); }
   gap: clamp(1.5rem, 4vw, 3.5rem);
 }
 .also .label { margin: 0; }
-.also > p:last-child {
-  max-width: 68ch;
+.also__body { max-width: 68ch; }
+.also__body p {
   font-size: .95rem;
   line-height: 1.8;
   color: var(--ink-3);
 }
+.also__body p + p { margin-top: 1rem; }
 .also a {
   color: var(--ink-2);
   background-image: linear-gradient(var(--line-2), var(--line-2));

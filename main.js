@@ -1,4 +1,4 @@
-/* Brij Patel ,  site behaviour. No dependencies. */
+/* Brij Patel ,  site behavior. No dependencies. */
 (() => {
   'use strict';
 
@@ -261,7 +261,7 @@
         g < 0 ? `Growth is negative. The average still climbs to $${fmt(avgFinal)}, carried by a few runaway runs, while the typical run ends at $${fmt(medFinal)} from a $100 start.`
         : ratio > 1.02 ? `Above Kelly. You are giving up growth and buying drawdown.`
         : ratio < 0.98 ? `Below Kelly. Safer ride, slower compounding.`
-        : `At the Kelly fraction, which maximises long-run log growth.`;
+        : `At the Kelly fraction, which maximizes long-run log growth.`;
       desc.textContent = `At p equals ${p.toFixed(2)} and bet fraction ${f.toFixed(2)}, the typical path ends near $${fmt(medFinal)} and the average near $${fmt(avgFinal)} from a starting bankroll of $100.`;
     };
 
@@ -363,7 +363,7 @@
       else { q('dotb').setAttribute('r', 3.5); q('dotb').setAttribute('cx', x); q('dotb').setAttribute('cy', sy(b).toFixed(1)); }
 
       o.verdict.textContent = b === null
-        ? `At \u03ba \u2248 ${plain(k)} the float32 Cholesky no longer factorises, so the baseline returns nothing. The randomized solve still comes back, at ${plain(r)} relative error.`
+        ? `At \u03ba \u2248 ${plain(k)} the float32 Cholesky no longer factorizes, so the baseline returns nothing. The randomized solve still comes back, at ${plain(r)} relative error.`
         : `At \u03ba \u2248 ${plain(k)} both solvers work, and the randomized solve is ${(b / r).toFixed(1)} times more accurate.`;
       q('desc').textContent = o.verdict.textContent;
     };
