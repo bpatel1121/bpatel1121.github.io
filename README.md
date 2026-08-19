@@ -5,7 +5,8 @@ Static, no build step, no dependencies. Three files do everything.
 ```
 index.html    the single-page site
 styles.css    design system + layout
-main.js       intro reveal, scrollspy, progress bar, theme switch, edge bounce
+main.js       intro reveal, scrollspy, theme switch, edge bounce, both widgets
+preview.png   1200x630 social card, referenced by the og:image tag
 ```
 
 ## Deploy to GitHub Pages
@@ -91,3 +92,33 @@ transform on top of that reads as lag. Tune `MAX`, `K` and `D` in `main.js`.
 
 **Reveals.** Sections fade up once on first intersection, then stop being
 watched.
+
+## Cache busting
+
+`index.html` loads its assets with a version query:
+
+```html
+<link rel="stylesheet" href="styles.css?v=2">
+<script src="main.js?v=2"></script>
+```
+
+GitHub Pages serves CSS and JS with a ten-minute cache, so after a push a
+browser can hold a stale `styles.css` against a fresh `index.html`. The symptom
+is a half-styled page: native blue sliders, blank charts, and the
+"needs JavaScript" fallback text showing even though JavaScript is running.
+
+**Bump both numbers whenever you change styles.css or main.js.** It costs one
+edit and removes the whole class of problem.
+
+## Social preview
+
+`preview.png` is the card that renders when the URL is pasted into LinkedIn,
+Slack, iMessage or an email client. It is referenced by absolute URL in the
+`og:image` and `twitter:image` tags, which is what scrapers require, so the
+domain is hard-coded in `index.html`. If the site ever moves to a custom
+domain, update those two tags and `og:url` and the canonical link.
+
+To regenerate the card, rebuild it at exactly 1200x630 and keep it under 1MB.
+Most scrapers cache aggressively: after changing it, re-scrape through the
+LinkedIn Post Inspector or Facebook Sharing Debugger, or the old image can
+persist for days.
