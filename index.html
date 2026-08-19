@@ -21,6 +21,8 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
 .hero__name .w>i{transform:none!important}
 .hero__eyebrow::before{transform:scaleX(1)!important}
 .hero__glow{opacity:.85!important}
+.kelly__svg,.kelly__controls,.fig__legend{display:none}
+.kelly__nojs{display:block!important}
 </style></noscript>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230b0b0d'/><text y='.9em' x='.5em' font-size='62' text-anchor='middle' font-family='Georgia,serif' fill='%23d8a657'>B</text></svg>">
 </head>
@@ -126,6 +128,60 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
         long since blown up. The current work extends this from synthetic operators to the ones
         actually produced by neural networks, which is where the guarantees have to hold if the
         method is going to be trusted in the VMC training loop.</p>
+
+        <p>The experiment below sweeps the damping &lambda; on a fixed operator, which is what
+        controls the conditioning of the Gram matrix, and measures each solver against a float64
+        QR reference. Drag the slider from left to right and the float32 baseline simply stops:
+        its Cholesky factorization fails and there is no answer to plot.</p>
+
+        <figure class="fig kappa" data-kappa>
+          <figcaption class="fig__title">Relative error against a float64 reference, n = 1000, k = 30</figcaption>
+
+          <label class="kelly__ctl kappa__ctl">
+            <span class="kelly__lab">Condition number <b data-out="kap">5.4</b></span>
+            <input type="range" min="0" max="30" step="1" value="0" data-in="i"
+                   aria-label="Condition number of the damped Gram matrix">
+          </label>
+
+          <div class="fig__legend">
+            <span><i class="sw sw--b"></i>float32 normal equations</span>
+            <span><i class="sw sw--a"></i>Randomized sketch-and-precondition</span>
+          </div>
+
+          <svg class="chart kappa__svg" viewBox="0 0 620 262" role="img" aria-labelledby="kp-t kp-d"
+               preserveAspectRatio="xMinYMin meet">
+            <title id="kp-t">Relative error versus condition number for both solvers</title>
+            <desc id="kp-d" data-desc>The float32 baseline error climbs with conditioning and its Cholesky factorization fails past a condition number of about ten million. The randomized solver stays finite across the whole range.</desc>
+            <g data-grid></g>
+            <rect data-band/>
+            <text data-bandlab class="c-tick"></text>
+            <path data-base fill="none"/>
+            <path data-rand fill="none"/>
+            <line data-cursor/>
+            <circle data-dotb r="3.5"/>
+            <circle data-dotr r="3.5"/>
+          </svg>
+
+          <dl class="kelly__read">
+            <div><dt>Damping &lambda;</dt><dd data-out="lam">1.0</dd></div>
+            <div><dt>float32 baseline</dt><dd data-out="eb">1.6e-6</dd></div>
+            <div><dt>Randomized</dt><dd data-out="er">1.9e-7</dd></div>
+            <div><dt>Advantage</dt><dd data-out="ratio">8.4&times;</dd></div>
+          </dl>
+          <p class="kelly__verdict" data-out="verdict" role="status"></p>
+          <p class="kelly__nojs">Interactive chart needs JavaScript. At moderate conditioning the
+          randomized solver is about 8&times; more accurate than the float32 baseline; past a
+          condition number near 10<sup>7</sup> the baseline&rsquo;s Cholesky factorization fails
+          outright, while the randomized solve stays finite out to roughly 10<sup>15</sup>.</p>
+        </figure>
+
+        <p class="caveat">Two honest notes. The baseline does not return a wrong number past
+        &kappa; &asymp; 10<sup>7</sup>, it raises: the float32 Cholesky factorization fails because
+        the matrix is no longer numerically positive definite. And the randomized solver staying
+        finite is not the same as staying accurate. At &kappa; &asymp; 10<sup>15</sup> its relative
+        error is about 1.9, so the answer is unusable, it just does not blow up. The useful claim is
+        the middle of the range, where the baseline has already failed and the randomized solve is
+        still correct to four or five digits.</p>
       </div>
     </article>
 
@@ -384,6 +440,76 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
       </div>
     </article>
 
+
+    <article class="entry reveal">
+      <div class="entry__meta">
+        <p class="mono">Nov 2025</p>
+        <p class="entry__stack">Python · NumPy · Matplotlib</p>
+        <a class="repo" href="https://github.com/bpatel1121/kelly-betting-simulator" target="_blank" rel="noopener">Repository <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="entry__body">
+        <h3>Kelly Criterion &amp; Position-Sizing Simulator</h3>
+        <p>A result that is easy to state and hard to feel: in a game where every individual
+        bet has positive expected value, betting twice the Kelly fraction makes you lose money.
+        Drag the sliders below and watch the two curves come apart.</p>
+
+        <figure class="fig kelly" data-kelly>
+          <figcaption class="fig__title">Even-money bet · 200 rounds · starting bankroll $100</figcaption>
+
+          <div class="kelly__controls">
+            <label class="kelly__ctl">
+              <span class="kelly__lab">Win probability <b data-out="p">0.55</b></span>
+              <input type="range" min="0.50" max="0.70" step="0.01" value="0.55" data-in="p"
+                     aria-label="Win probability p">
+            </label>
+            <label class="kelly__ctl">
+              <span class="kelly__lab">Bet fraction <b data-out="f">0.10</b></span>
+              <input type="range" min="0.01" max="0.40" step="0.01" value="0.10" data-in="f"
+                     aria-label="Bet fraction of bankroll">
+            </label>
+          </div>
+
+          <div class="fig__legend">
+            <span><i class="sw sw--a"></i>Typical path</span>
+            <span><i class="sw sw--b"></i>Average</span>
+            <span><i class="sw sw--c"></i>Individual runs</span>
+          </div>
+
+          <svg class="chart kelly__svg" viewBox="0 0 620 250" role="img" aria-labelledby="k-t k-d"
+               preserveAspectRatio="xMinYMin meet">
+            <title id="k-t">Bankroll over 200 rounds, typical path versus average</title>
+            <desc id="k-d" data-desc>The typical path and the average of all paths, on a logarithmic bankroll axis, starting from $100.</desc>
+            <g data-grid></g>
+            <g data-paths></g>
+            <path data-mean fill="none"/>
+            <path data-typ  fill="none"/>
+          </svg>
+
+          <dl class="kelly__read">
+            <div><dt>Kelly optimum</dt><dd data-out="star">0.10</dd></div>
+            <div><dt>Log growth / round</dt><dd data-out="g">0.00501</dd></div>
+            <div><dt>Typical final</dt><dd data-out="med">$272</dd></div>
+            <div><dt>Average final</dt><dd data-out="avg">$732</dd></div>
+          </dl>
+          <p class="kelly__verdict" data-out="verdict" role="status"></p>
+          <p class="kelly__nojs">Interactive chart needs JavaScript. The figures above are the
+          closed-form values at the Kelly fraction: log growth 0.00501 per round, a typical run
+          finishing near $272 and the average near $732, from a starting bankroll of $100.</p>
+        </figure>
+
+        <p>The median path is the point. Above the Kelly fraction the average keeps climbing,
+        carried by a handful of runs that ran away upward, while the typical run finishes below
+        where it started. Averages are the wrong statistic for multiplicative processes, which
+        is the whole lesson of Kelly sizing.</p>
+        <p class="caveat">The curves are closed form: the average grows as (1 + f(2p&#8209;1))<sup>t</sup>
+        and the typical path as exp(t&#183;g), where g is the expected log growth per round. The
+        faint runs behind them are simulated on a fixed seed, so moving a slider changes the
+        strategy and not the luck. In the repository, &ldquo;probability of ruin&rdquo; means
+        P(final wealth ≤ $1 from a start of $100), since fixed&#8209;fraction betting is
+        multiplicative and capital never reaches exactly zero.</p>
+      </div>
+    </article>
+
     <article class="entry reveal">
       <div class="entry__meta">
         <p class="mono">2026 (v1.0)</p>
@@ -444,10 +570,7 @@ html.is-booting #rubber,html.is-booting .nav{opacity:1!important;transform:none!
 
     <div class="also reveal">
       <p class="label">Also</p>
-      <p>A <a href="https://github.com/bpatel1121/kelly-betting-simulator" target="_blank" rel="noopener">Kelly criterion position&#8209;sizing simulator</a>,
-      2,000 Monte Carlo paths confirming that Full Kelly reproduces the closed&#8209;form growth
-      optimum while Double&#8209;Kelly turns growth negative despite an identical edge. And a
-      <a href="https://github.com/bpatel1121/quantum-state-tomography-wigner" target="_blank" rel="noopener">quantum state tomography solver</a>
+      <p>A <a href="https://github.com/bpatel1121/quantum-state-tomography-wigner" target="_blank" rel="noopener">quantum state tomography solver</a>
       that poses reconstruction from Wigner&#8209;function measurements as a semidefinite program
       in CVXPY, built in 24 hours at Yale&rsquo;s YQuantum hackathon.</p>
     </div>
