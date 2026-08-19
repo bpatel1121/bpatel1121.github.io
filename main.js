@@ -231,16 +231,17 @@
       let grid = '';
       for (let e = lo; e <= hi; e++) {
         const y = sy(e).toFixed(1);
-        const lab = e >= 6 ? (10 ** (e - 6)) + 'M'
-                  : e >= 3 ? (10 ** (e - 3)) + 'k'
-                  : e <  0 ? (10 ** e).toFixed(-e)
+        const lab = e >= 12 ? (10 ** (e - 12)) + 'T'
+                  : e >=  9 ? (10 ** (e -  9)) + 'B'
+                  : e >=  6 ? (10 ** (e -  6)) + 'M'
+                  : e >=  3 ? (10 ** (e -  3)) + 'k'
+                  : e <   0 ? (10 ** e).toFixed(-e)
                   : String(10 ** e);
         grid += `<line x1="${X0}" y1="${y}" x2="${X1}" y2="${y}"/>` +
                 `<text class="c-tick" x="${X0 - 8}" y="${(+y + 3.5).toFixed(1)}" style="text-anchor:end">$${lab}</text>`;
       }
       grid += `<text class="c-tick" x="${X0}" y="${Y1 + 22}" style="text-anchor:start">round 0</text>` +
-              `<text class="c-tick" x="${X1}" y="${Y1 + 22}" style="text-anchor:end">round ${R}</text>` +
-              `<text class="c-tick" x="${X0 - 8}" y="${Y0 - 2}" style="text-anchor:end">bankroll</text>`;
+              `<text class="c-tick" x="${X1}" y="${Y1 + 22}" style="text-anchor:end">round ${R}</text>`;
       gGrid.innerHTML = grid;
       gPaths.innerHTML = runs.map(r => `<path class="k-run" d="${d(r)}"/>`).join('');
       pMean.setAttribute('d', d(mean));
@@ -323,8 +324,7 @@
     for (let e = LY0; e <= LY1; e += 2)
       grid += `<line x1="${X0}" y1="${sy(10 ** e).toFixed(1)}" x2="${X1}" y2="${sy(10 ** e).toFixed(1)}"/>` +
               `<text class="c-tick" x="${X0 - 8}" y="${(sy(10 ** e) + 3.5).toFixed(1)}" style="text-anchor:end">${pow10(e)}</text>`;
-    grid += `<text class="c-tick" x="${X0}" y="${Y1 + 42}" style="text-anchor:start">condition number of the damped Gram matrix</text>` +
-            `<text class="c-tick" x="${X0 - 8}" y="${Y0 - 2}" style="text-anchor:end">rel. err</text>`;
+    grid += `<text class="c-tick" x="${X0}" y="${Y1 + 42}" style="text-anchor:start">condition number of the damped Gram matrix</text>`;
     q('grid').innerHTML = grid;
 
     q('band').setAttribute('x', sx(FAIL_K).toFixed(1));

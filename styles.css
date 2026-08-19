@@ -637,10 +637,44 @@ sup { font-size: .7em; }
 
 /* ---------------- print ---------------- */
 @media print {
-  body { background: #fff; color: #000; }
-  .nav, .progress, .hero__cue, .hero__glow, body::before { display: none !important; }
-  .reveal, .anim { opacity: 1 !important; transform: none !important; }
-  a { color: #000; }
+  /* force the light end of the ramp regardless of the active theme */
+  :root, html[data-theme] {
+    --bg: #fff; --bg-2: #fff; --surface: #fff; --surface-2: #fff;
+    --ink: #000; --ink-2: #1a1a1a; --ink-3: #444; --ink-4: #666;
+    --line: #ccc; --line-2: #aaa;
+    --gold: #000; --gold-dim: #666; --gold-glow: transparent;
+    --chart-b: #888; --neg: #000; --edge: transparent;
+  }
+  body { background: #fff; color: #000; font-size: 9.5pt; line-height: 1.4; }
+  body::before, .progress, .nav, .theme, .hero__cue, .hero__glow, .edge,
+  .hero__cta, .kelly__controls, .kelly__svg, .kappa__svg, .kelly__verdict,
+  .fig__legend, .fig__table summary, .chart { display: none !important; }
+
+  /* the static fallbacks carry the numbers instead of the interactive charts */
+  .kelly__nojs { display: block !important; }
+  .fig__table[open] > *, .fig__table > div { display: block !important; }
+  details { display: block !important; }
+
+  .reveal, .anim, #rubber { opacity: 1 !important; transform: none !important; }
+  .hero { min-height: auto; padding-block: 0 1.5rem; page-break-after: avoid; }
+  .hero__name { font-size: 30pt; }
+  .hero__role { font-size: 12pt; }
+  .hero__blurb { font-size: 11pt; max-width: none; }
+  .section { padding-block: .8rem; }
+  .section__title { font-size: 17pt; }
+  .section__head { margin-bottom: 1rem; page-break-after: avoid; }
+  .also, .strip__item, .table-wrap, .kelly__read { page-break-inside: avoid; }
+  .entry__body > p, .aside p { max-width: none; }
+  h2, h3 { page-break-after: avoid; }
+
+  /* a printed link is useless without its destination */
+  a { color: #000; text-decoration: none; }
+  .entry__body a[href^="http"]::after,
+  .also a[href^="http"]::after,
+  .footer__links a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+  .repo::after { content: " (" attr(href) ")"; font-size: 8pt; color: #555; }
+  table.data { font-size: 8.5pt; }
+  table.data td, table.data th { padding: .3rem .4rem; }
 }
 
 /* ============================================================
